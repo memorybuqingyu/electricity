@@ -9,6 +9,8 @@
 
     <feature-view/>
 
+    <tab-control :titles="titles" class="tab-control"></tab-control>
+
     <ul>
       <li>列表1</li>
       <li>列表2</li>
@@ -65,11 +67,15 @@
 </template>
 
 <script>
-import NavBar from "@/components/common/navbar/NavBar.vue";
 import HomeSwiper from "./childComps/HomeSwiper.vue";
-import { getHomeMultidata } from "@/network/home.js";
-import HomeRecommendView from "./childComps/HomeRecommendView.vue";
 import FeatureView from './childComps/FeatureView.vue';
+import HomeRecommendView from "./childComps/HomeRecommendView.vue";
+
+import NavBar from "@/components/common/navbar/NavBar.vue";
+import TabControl from '@/components/content/tabControl/TabControl.vue';
+
+
+import { getHomeMultidata } from "@/network/home.js";
 
 export default {
   created() {
@@ -84,6 +90,7 @@ export default {
     return {
       banners: [],
       recommends: [],
+      titles:["流行","新款","精选"]
     };
   },
   components: {
@@ -91,6 +98,7 @@ export default {
     HomeSwiper,
     HomeRecommendView,
     FeatureView,
+    TabControl,
   },
 };
 </script>
@@ -106,5 +114,9 @@ export default {
   right: 0%;
   top: 0%;
   z-index: 9;
+}
+.tab-control{
+  position: sticky;
+  top: 43px;
 }
 </style>
