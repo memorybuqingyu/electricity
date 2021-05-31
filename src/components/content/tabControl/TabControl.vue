@@ -30,6 +30,8 @@ export default {
   methods: {
     itemClick(index) {
       this.currentIndex = index;
+      //往外面传递点击事件
+      this.$emit('tabClick',index)
     },
   },
 };

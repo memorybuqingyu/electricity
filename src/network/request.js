@@ -17,7 +17,7 @@ export function request(config) {
 
   instence.interceptors.response.use(res => {
 
-    return res;
+    return res.data.data;
   }, err => {
 
   })
